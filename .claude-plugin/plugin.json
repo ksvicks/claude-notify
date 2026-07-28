@@ -1,0 +1,17 @@
+{
+  "name": "claude-notify",
+  "version": "1.2.0",
+  "description": "macOS menu bar indicator for Claude Code sessions. Shows at a glance which session is blocked on you, which finished, and which is still working.",
+  "author": {
+    "name": "Vignesh KS",
+    "email": "ksvicks@gmail.com"
+  },
+  "homepage": "https://github.com/ksvicks/claude-notify",
+  "keywords": [
+    "macos",
+    "menubar",
+    "notifications",
+    "hooks",
+    "sessions"
+  ]
+}

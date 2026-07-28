@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-notify",
+  "description": "macOS menu bar indicator for Claude Code sessions",
+  "owner": {
+    "name": "Vignesh KS",
+    "email": "ksvicks@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "claude-notify",
+      "description": "macOS menu bar indicator for Claude Code sessions. Shows at a glance which session is blocked on you, which finished, and which is still working.",
+      "version": "1.2.0",
+      "author": {
+        "name": "Vignesh KS"
+      },
+      "category": "productivity",
+      "source": "./",
+      "homepage": "https://github.com/ksvicks/claude-notify"
+    }
+  ]
+}
