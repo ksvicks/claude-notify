@@ -25,7 +25,39 @@ That registers the hooks. Then build the menu bar app:
 Requires macOS 13 or later and the Xcode command line tools
 (`xcode-select --install`) for `swiftc`.
 
-Open the menu and turn on **Open at Login** so it starts with your machine.
+## Starting it
+
+Installing the plugin starts nothing by itself. There are two halves and they
+come up in different ways.
+
+**The hooks** load when Claude Code next starts. A session that was already
+open at install time keeps running the hooks it booted with, so restart it or
+it will never write any state.
+
+**The app** is an ordinary menu bar app. `/claude-notify:setup` builds it and
+launches it once. After that, starting it is on you:
+
+```bash
+open ~/Applications/ClaudeSessions.app
+```
+
+Nothing brings it back on its own. It is `LSUIElement`, so a quit leaves no
+Dock icon and no window — an empty menu bar is the only symptom. Check before
+you debug anything else:
+
+```bash
+pgrep -x ClaudeSessions >/dev/null && echo running || echo "not running"
+```
+
+To stop doing this by hand, open the menu and turn on **Open at Login**. The
+app registers itself through `SMAppService` and macOS starts it from then on.
+Use that rather than writing your own LaunchAgent: launchd would start a
+second copy alongside the login item and you would get two icons.
+
+Rebuild after every update. The app ships as source, so
+`/plugin update claude-notify` refreshes the source and leaves the binary in
+`~/Applications` at the old version. Run `/claude-notify:setup` again to
+rebuild and relaunch.
 
 ## What the indicator means
 
